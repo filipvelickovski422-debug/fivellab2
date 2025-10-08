@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Fivel Lab | Your Social Media Lab for Engineered Results</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -1379,25 +1379,34 @@
         padding: 40px 30px;
     }
 
-    .portfolio-grid {
-        flex-direction: column;
-        align-items: center;
+     .portfolio-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+
+    .portfolio-item {
+        width: 85vw !important;
+        max-width: 380px !important;
+        height: auto !important;
+        flex-shrink: 0 !important;
     }
 
     .portfolio-item:nth-child(1),
     .portfolio-item:nth-child(3) {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        aspect-ratio: 4/5;
+        aspect-ratio: 4/5 !important;
     }
 
     .portfolio-item:nth-child(2),
     .portfolio-item:nth-child(4) {
+        aspect-ratio: 1/1 !important;
+    }
+
+    .portfolio-item img {
         width: 100%;
-        max-width: 350px;
-        height: auto;
-        aspect-ratio: 1/1;
+        height: 100%;
+        object-fit: cover;
     }
 
     .testimonials-grid {
@@ -1470,10 +1479,12 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="lab-label">Testing</div>
-                <div class="lab-label">Optimizing</div>
-                <div class="lab-label">Scaling</div>
-
+                <div class="lab-labels-container">
+    <div class="lab-label">Testing</div>
+    <div class="lab-label">Optimizing</div>
+    <div class="lab-label">Scaling</div>
+</div>
+}
                 <div class="flasks-container">
                     <div class="flask">
                         <div class="tube-cap"></div>
@@ -2126,36 +2137,3 @@ counters.forEach(counter => {
 </script>
 </body>
 </html>
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .case-study-visual img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .btn-secondary-case {
-            display: inline-block;
-            padding: 16px 35px;
-            background: linear-gradient(135deg, #49b8a5, #3a9c8a);
-            color: white;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(73, 184, 165, 0.3);
-        }
-
-        .btn-secondary-case:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(73, 184, 165, 0.5);
-            background: linear-gradient(135deg, #3da896, #358f7e);
-        }
-
-
