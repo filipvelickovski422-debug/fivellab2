@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Fivel Lab - Lab Results & Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #003d4a;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 61, 74, 0.1);
+            z-index: 1000;
+            padding: 20px 50px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #003d4a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #49b8a5;
+        }
+
+        .nav-links a.active {
+            color: #49b8a5;
+        }
+
+        .cta-nav {
+            background: #49b8a5;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            background: #3da896;
+            color: white;
+            box-shadow: 0 5px 20px rgba(73, 184, 165, 0.3);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 180px 20px 80px;
+            background: linear-gradient(135deg, #003d4a 0%, #002a33 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .page-header .highlight {
+            color: #49b8a5;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* FILTER SECTION */
+        .filter-section {
+            background: white;
+            padding: 40px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #003d4a;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            border-color: #49b8a5;
+            color: #49b8a5;
+        }
+
+        .filter-btn.active {
+            background: #49b8a5;
+            border-color: #49b8a5;
+            color: white;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio-section {
+            padding: 80px 20px;
+            background: #fafafa;
+        }
+
+        .portfolio-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #003d4a;
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 5px solid #49b8a5;
+        }
+
+        /* PORTFOLIO GRID */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 61, 74, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 61, 74, 0.2);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #003d4a, #49b8a5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(73, 184, 165, 0.1);
+            color: #49b8a5;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #003d4a;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-description {
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-stats {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #49b8a5;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        /* CASE STUDIES DETAILED */
+        .case-study-detailed {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 61, 74, 0.15);
+            margin-bottom: 60px;
+        }
+
+        .case-study-header {
+            padding: 50px;
+            background: linear-gradient(135deg, #003d4a 0%, #002a33 100%);
+        }
+
+        .case-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #e9a631;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .case-study-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .case-study-header p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .case-study-body {
+            padding: 50px;
+        }
+
+        .case-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .case-section h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #003d4a;
+            margin-bottom: 15px;
+        }
+
+        .case-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .case-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .case-section ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .case-section ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #49b8a5;
+            font-weight: bold;
+        }
+
+        .case-metrics-large {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .metric-large {
+            text-align: center;
+        }
+
+        .metric-large-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #49b8a5;
+            margin-bottom: 10px;
+        }
+
+        .metric-large-label {
+            font-size: 13px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #003d4a 0%, #002a33 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #e9a631, #d89520);
+            color: #003d4a;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 166, 49, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #003d4a;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #49b8a5;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* HIDDEN CLASS FOR FILTERING */
+        .hidden {
+            display: none;
+        }
+
+ /* CAROUSEL STYLES */
+        .carousel-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease;
+            align-items: flex-end;
+        }
+
+     .design-item {
+            position: relative;
+            flex-shrink: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 61, 74, 0.15);
+            transition: transform 0.3s;
+            background: white;
+        }
+
+        .design-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 61, 74, 0.25);
+        }
+
+.design-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 61, 74, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 5;
+            backdrop-filter: blur(10px);
+        }
+
+        .design-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(73, 184, 165, 0.9);
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            color: white;
+            box-shadow: 0 5px 20px rgba(73, 184, 165, 0.3);
+        }
+
+        .carousel-arrow:hover {
+            background: #49b8a5;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.left {
+            left: 10px;
+        }
+
+        .carousel-arrow.right {
+            right: 10px;
+        }
+
+        .carousel-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 140px 20px 60px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .filter-section {
+                top: 70px;
+            }
+
+            .filter-container {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-row {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .case-metrics-large {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <!-- EDIT: Add your logo -->
+                <img src="images/fivel-lab-logo.png" alt="Fivel Lab">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="Portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#faqs">FAQs</a></li>
+                <li><a href="index.html#contact" class="cta-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Lab <span class="highlight">Results</span></h1>
+        <p>Real campaigns. Real data. Real impact. Explore proven experiments that delivered measurable growth.</p>
+    </section>
+
+    <!-- FILTER -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="design">Designs</button>        
+            <button class="filter-btn" data-filter="meta-ads">Meta Ads</button>
+            <button class="filter-btn" data-filter="case-study">Case Studies</button>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio-section">
+        <div class="portfolio-container">
+            
+            <!-- DESIGNS CATEGORY -->
+<div class="category-section" data-category="design">
+    <h2 class="category-title">Design Work</h2>
+    
+    <!-- CAROUSEL CONTAINER -->
+    <div class="carousel-container">
+        <button class="carousel-arrow left" id="prevBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                
+                <!-- Design 1 - 1:1 -->
+                <div class="design-item" style="width: 350px; height: 350px;">
+                    <div class="design-label">Facebook/IG Ad</div>
+                    <img src="https://via.placeholder.com/350x350/49b8a5/ffffff?text=FB/IG+Ad" alt="Facebook/IG Ad">
+                </div>
+
+                <!-- Design 2 - 4:5 -->
+                <div class="design-item" style="width: 320px; height: 400px;">
+                    <div class="design-label">Instagram Post</div>
+                    <img src="https://via.placeholder.com/320x400/49b8a5/ffffff?text=Instagram+Post" alt="Instagram Post">
+                </div>
+
+                <!-- Design 3 - 9:16 -->
+                <div class="design-item" style="width: 250px; height: 444px;">
+                    <div class="design-label">FB/IG Story</div>
+                    <img src="https://via.placeholder.com/250x444/49b8a5/ffffff?text=Story" alt="FB/IG Story">
+                </div>
+
+                <!-- Design 4 - 1:1 -->
+                <div class="design-item" style="width: 350px; height: 350px;">
+                    <div class="design-label">Facebook Post</div>
+                    <img src="https://via.placeholder.com/350x350/49b8a5/ffffff?text=Facebook+Post" alt="Facebook Post">
+                </div>
+
+                <!-- Design 5 - 4:5 -->
+                <div class="design-item" style="width: 320px; height: 400px;">
+                    <div class="design-label">Instagram Post</div>
+                    <img src="https://via.placeholder.com/320x400/49b8a5/ffffff?text=Instagram+Post" alt="Instagram Post">
+                </div>
+
+                <!-- Design 6 - 9:16 -->
+                <div class="design-item" style="width: 250px; height: 444px;">
+                    <div class="design-label">Poster</div>
+                    <img src="https://via.placeholder.com/250x444/49b8a5/ffffff?text=Poster" alt="Poster">
+                </div>
+
+                <!-- Design 7 - 1:1 -->
+                <div class="design-item" style="width: 350px; height: 350px;">
+                    <div class="design-label">Facebook Post</div>
+                    <img src="https://via.placeholder.com/350x350/49b8a5/ffffff?text=Facebook+Post" alt="Facebook Post">
+                </div>
+
+                <!-- Design 8 - 4:5 -->
+                <div class="design-item" style="width: 320px; height: 400px;">
+                    <div class="design-label">Instagram Ad</div>
+                    <img src="https://via.placeholder.com/320x400/49b8a5/ffffff?text=Instagram+Ad" alt="Instagram Ad">
+                </div>
+
+                <!-- Design 9 - 1:1 -->
+                <div class="design-item" style="width: 350px; height: 350px;">
+                    <div class="design-label">Facebook Post</div>
+                    <img src="https://via.placeholder.com/350x350/49b8a5/ffffff?text=Facebook+Post" alt="Facebook Post">
+                </div>
+
+                <!-- Design 10 - 9:16 -->
+                <div class="design-item" style="width: 250px; height: 444px;">
+                    <div class="design-label">Instagram Story</div>
+                    <img src="https://via.placeholder.com/250x444/49b8a5/ffffff?text=IG+Story" alt="Instagram Story">
+                </div>
+
+                <!-- Design 11 - 4:5 -->
+                <div class="design-item" style="width: 320px; height: 400px;">
+                    <div class="design-label">Flyer</div>
+                    <img src="https://via.placeholder.com/320x400/49b8a5/ffffff?text=Flyer" alt="Flyer">
+                </div>
+
+                <!-- Design 12 - 1:1 -->
+                <div class="design-item" style="width: 350px; height: 350px;">
+                    <div class="design-label">Logo Design</div>
+                    <img src="https://via.placeholder.com/350x350/49b8a5/ffffff?text=Logo" alt="Logo Design">
+                </div>
+
+                <!-- Design 13 - 16:9 -->
+                <div class="design-item" style="width: 444px; height: 250px;">
+                    <div class="design-label">Menu Design</div>
+                    <img src="https://via.placeholder.com/444x250/49b8a5/ffffff?text=Menu" alt="Menu Design">
+                </div>
+
+                <!-- Design 14 - 4:5 -->
+                <div class="design-item" style="width: 320px; height: 400px;">
+                    <div class="design-label">Instagram Post</div>
+                    <img src="https://via.placeholder.com/320x400/49b8a5/ffffff?text=Instagram+Post" alt="Instagram Post">
+                </div>
+
+                <!-- Design 15 - 1:1 -->
+                <div class="design-item" style="width: 350px; height: 350px;">
+                    <div class="design-label">Facebook Ad</div>
+                    <img src="https://via.placeholder.com/350x350/49b8a5/ffffff?text=Facebook+Ad" alt="Facebook Ad">
+                </div>
+
+            </div>
+        </div>
+        
+        <button class="carousel-arrow right" id="nextBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
+    
+</div>
+      
+            <!-- META ADS CATEGORY -->
+<div class="category-section" data-category="meta-ads">
+    <h2 class="category-title">Meta Ads Results</h2>
+    <div class="portfolio-grid">
+        
+        <!-- META ADS ITEM 1 -->
+        <div class="portfolio-item" data-type="meta-ads">
+            <div class="portfolio-image">
+                <!-- EDIT: Замени ја сликата со твоја -->
+                <img src="https://via.placeholder.com/400x300/49b8a5/ffffff?text=Halloween+Campaign" alt="Resting Witch Facial Campaign">
+            </div>
+            <div class="portfolio-content">
+                <span class="portfolio-tag">Meta Ads</span>
+                <h3 class="portfolio-title">Halloween Campaign: Resting Witch Facial</h3>
+                <p class="portfolio-description">Cold audience targeting with conversion-optimized landing page for seasonal facial promotion driving high-intent bookings.</p>
+                <div class="portfolio-stats">
+                    <div class="stat">
+                        <span class="stat-value">12.6x</span>
+                        <span class="stat-label">ROAS</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">$2.07</span>
+                        <span class="stat-label">Cost/Lead</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">263</span>
+                        <span class="stat-label">Leads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- META ADS ITEM 2 -->
+        <div class="portfolio-item" data-type="meta-ads">
+            <div class="portfolio-image">
+                <!-- EDIT: Замени ја сликата со твоја -->
+                <img src="https://via.placeholder.com/400x300/49b8a5/ffffff?text=Skincare+Launch" alt="Skincare Product Launch">
+            </div>
+            <div class="portfolio-content">
+                <span class="portfolio-tag">Lead Generation</span>
+                <h3 class="portfolio-title">Innovative Skincare Product Launch</h3>
+                <p class="portfolio-description">Instant form campaign with full automation workflow including SMS notifications, Klaviyo integration, and automated follow-up sequences.</p>
+                <div class="portfolio-stats">
+                    <div class="stat">
+                        <span class="stat-value">4.85x</span>
+                        <span class="stat-label">ROAS</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">$8.33</span>
+                        <span class="stat-label">Cost/Lead</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">265</span>
+                        <span class="stat-label">Leads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- META ADS ITEM 3 -->
+        <div class="portfolio-item" data-type="meta-ads">
+            <div class="portfolio-image">
+                <!-- EDIT: Замени ја сликата со твоја -->
+                <img src="https://via.placeholder.com/400x300/49b8a5/ffffff?text=Grand+Opening" alt="Facial Studio Grand Opening">
+            </div>
+            <div class="portfolio-content">
+                <span class="portfolio-tag">Brand Launch</span>
+                <h3 class="portfolio-title">Facial Studio Grand Opening</h3>
+                <p class="portfolio-description">New studio launch campaign with landing page bookings and automated email follow-ups. Fully booked entire first month in just 20 days.</p>
+                <div class="portfolio-stats">
+                    <div class="stat">
+                        <span class="stat-value">4.14%</span>
+                        <span class="stat-label">CTR</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">$3.05</span>
+                        <span class="stat-label">Cost/Lead</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">56</span>
+                        <span class="stat-label">Leads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+            <!-- DETAILED CASE STUDIES -->
+<div class="category-section" data-category="case-study">
+    <h2 class="category-title">Detailed Case Studies</h2>
+
+    <!-- CASE STUDY 1 -->
+    <div class="case-study-detailed" data-type="case-study">
+        <div class="case-study-header">
+            <div class="case-label">EXPERIMENT #001 • BEAUTY STUDIO</div>
+            <h3>New Studio Launch: From Zero to Fully Booked in 20 Days</h3>
+            <p>Building brand awareness and driving bookings for a completely unknown facial studio in a new city through emotional storytelling and precision targeting.</p>
+        </div>
+        <div class="case-study-body">
+            <div class="case-row">
+                <div class="case-section">
+                    <h4>The Challenge</h4>
+                    <p>A new facial studio relocating to an unfamiliar city faced:</p>
+                    <ul>
+                        <li>Zero brand recognition in the new market</li>
+                        <li>No existing customer base or referrals</li>
+                        <li>Competing with established local studios</li>
+                        <li>Urgent need to fill appointment calendar quickly</li>
+                        <li>Limited budget for grand opening promotion</li>
+                    </ul>
+                </div>
+                <div class="case-section">
+                    <h4>The Solution</h4>
+                    <p>Strategic grand opening campaign with:</p>
+                    <ul>
+                        <li>Emotionally-driven video scripts showcasing studio atmosphere</li>
+                        <li>Personal, authentic brand storytelling approach</li>
+                        <li>Conversion-optimized landing page for seamless booking</li>
+                        <li>Automated email follow-up sequences</li>
+                        <li>Hyper-local targeting to ideal demographic</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-section">
+                <h4>Key Tactics</h4>
+                <p>We developed a multi-touchpoint campaign centered on authentic brand introduction. Custom video content highlighted the studio's unique atmosphere and approach, while landing page copy emphasized the personal, luxurious experience. Automated workflows ensured no lead was lost, with strategic follow-ups nurturing interest into bookings. The combination of emotional appeal and technical precision created immediate trust with a completely cold audience.</p>
+            </div>
+
+            <div class="case-metrics-large">
+                <div class="metric-large">
+                    <div class="metric-large-value">20 Days</div>
+                    <div class="metric-large-label">To Full Calendar</div>
+                </div>
+                <div class="metric-large">
+                    <div class="metric-large-value">56</div>
+                    <div class="metric-large-label">Qualified Leads</div>
+                </div>
+                <div class="metric-large">
+                    <div class="metric-large-value">$3.05</div>
+                    <div class="metric-large-label">Cost Per Lead</div>
+                </div>
+                <div class="metric-large">
+                    <div class="metric-large-value">4.14%</div>
+                    <div class="metric-large-label">CTR</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CASE STUDY 2 -->
+    <div class="case-study-detailed" data-type="case-study">
+        <div class="case-study-header">
+            <div class="case-label">EXPERIMENT #002 • SKINCARE PRODUCT</div>
+            <h3>Innovative Product Launch: 4.85x ROAS Through Strategic Education</h3>
+            <p>Introducing an unknown skincare innovation to cold audiences through influencer partnerships, detailed targeting, and automated nurture sequences.</p>
+        </div>
+        <div class="case-study-body">
+            <div class="case-row">
+                <div class="case-section">
+                    <h4>The Challenge</h4>
+                    <p>Launching a completely new skincare product required:</p>
+                    <ul>
+                        <li>Educating audience on innovative solution</li>
+                        <li>Building credibility with zero brand recognition</li>
+                        <li>Overcoming skepticism about new skincare claims</li>
+                        <li>Converting cold traffic into qualified leads</li>
+                        <li>Establishing product-market fit quickly</li>
+                    </ul>
+                </div>
+                <div class="case-section">
+                    <h4>The Solution</h4>
+                    <p>Comprehensive launch strategy featuring:</p>
+                    <ul>
+                        <li>Professional influencer marketing partnerships</li>
+                        <li>Educational content showcasing product benefits</li>
+                        <li>Visual storytelling highlighting product features</li>
+                        <li>Precision audience targeting based on skin concerns</li>
+                        <li>Full automation with Klaviyo + SMS integration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-section">
+                <h4>Key Tactics</h4>
+                <p>We created a trust-building funnel that educated before selling. Instant forms captured leads while automated workflows immediately delivered value through SMS and email sequences. Influencer content provided social proof and professional credibility, while granular targeting ensured ads reached people actively seeking skincare solutions. A 3-day automated follow-up recovered interested prospects who hadn't yet converted, maximizing every dollar of ad spend.</p>
+            </div>
+
+            <div class="case-metrics-large">
+                <div class="metric-large">
+                    <div class="metric-large-value">4.85x</div>
+                    <div class="metric-large-label">ROAS</div>
+                </div>
+                <div class="metric-large">
+                    <div class="metric-large-value">265</div>
+                    <div class="metric-large-label">Qualified Leads</div>
+                </div>
+                <div class="metric-large">
+                    <div class="metric-large-value">$8.33</div>
+                    <div class="metric-large-label">Cost Per Lead</div>
+                </div>
+                <div class="metric-large">
+                    <div class="metric-large-value">3.38%</div>
+                    <div class="metric-large-label">CTR</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Want Results Like These?</h2>
+        <p>Let's discuss how strategic testing and optimization can scale your brand.</p>
+        <a href="index.html#contact" class="btn-primary">Book Free Consultation</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-brand">FIVEL LAB</div>
+                <p class="footer-text">Your Social Media Lab for Engineered Results. Specialized Meta Ads expert with $1M+ in proven ad spend.</p>
+            </div>
+            <div>
+                <ul class="footer-links">
+                    <li><h4>Quick Links</h4></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="index.html#process">Process</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footer-links">
+                    <li><h4>Services</h4></li>
+                    <li><a href="index.html#services">Meta Ads</a></li>
+                    <li><a href="index.html#services">Content Creation</a></li>
+                    <li><a href="index.html#services">Social Media</a></li>
+                    <li><a href="index.html#services">Automation</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="footer-links">
+                    <li><h4>Contact</h4></li>
+                    <li><a href="mailto:contact@fivellab.com">contact@fivellab.com</a></li>
+                    <li><a href="index.html#contact">Book a Call</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2025 Fivel Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FILTER FUNCTIONALITY
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Show/hide categories
+                categorySections.forEach(section => {
+                    const category = section.getAttribute('data-category');
+                    
+                    if (filter === 'all') {
+                        section.classList.remove('hidden');
+                    } else if (category === filter) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+            });
+        });
+// CAROUSEL FUNCTIONALITY
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (track && prevBtn && nextBtn) {
+            let currentIndex = 0;
+            const itemWidth = 370; // approximate width with gap
+            const maxIndex = document.querySelectorAll('.design-item').length - 3;
+
+            function updateCarousel() {
+                const offset = -currentIndex * itemWidth;
+                track.style.transform = `translateX(${offset}px)`;
+                
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            updateCarousel();
+        }
+    </script>
+</body>
+</html>
+
