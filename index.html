@@ -383,20 +383,20 @@
 
         .lab-label:nth-child(1) {
             top: 60px;
-            left: -30px;
+            left: 100px;
             animation-delay: 0s;
         }
 
         .lab-label:nth-child(2) {
-            top: 30px;
-            left: 50%;
+            top: 0px;
+            left: 42%;
             transform: translateX(-50%);
             animation-delay: 1.3s;
         }
 
         .lab-label:nth-child(3) {
-            top: 60px;
-            right: -30px;
+            top: 80px;
+            right: 100px;
             animation-delay: 2.6s;
         }
 
@@ -445,14 +445,26 @@
 
         .social-icon.facebook {
             top: 160px;
-            left: -80px;
+            left: 70px;
             animation-delay: 0s;
         }
 
         .social-icon.instagram {
-            top: 260px;
-            right: -80px;
+            top: 200px;
+            right: 20px;
             animation-delay: 1s;
+        }
+
+        .social-icon.tiktok {
+            bottom: 200px;
+            left: 110px;
+            animation-delay: 2s;
+        }
+
+        .social-icon.linkedin {
+            bottom: 100px;
+            right: 20px;
+            animation-delay: 2s;
         }
 
         .social-icon.tiktok {
@@ -1983,56 +1995,53 @@ counters.forEach(counter => {
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section section-light">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Ready to Engineer Your Success?</h2>
-                <p class="section-subtitle">Let's discuss how I can transform your social media advertising</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Talk</h3>
-                    <p>Have a project in mind? Want to discuss your social media strategy? Book a free consultation and let's explore how I can grow your business together.</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            <span>fivellab1@gmail.com</span>
-                        </div>
-                        <div class="contact-method">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                            <span>Remote - Working with clients worldwide</span>
-                        </div>
+    html<!-- CONTACT -->
+<section id="contact" class="section section-light">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Ready to Engineer Your Success?</h2>
+            <p class="section-subtitle">Let's discuss how I can transform your social media advertising</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Let's Talk</h3>
+                <p>Have a project in mind? Want to discuss your social media strategy? Book a free consultation and let's explore how I can grow your business together.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>fivellab1@gmail.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        <span>Remote - Working with clients worldwide</span>
                     </div>
                 </div>
-                <div class="contact-form">
-                   <form action="https://formsubmit.co/fivellab1@gmail.com" method="POST">
-    <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" name="name" placeholder="John Smith" required>
-    </div>
-    <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="you@company.com" required>
-    </div>
-    <div class="form-group">
-        <label>Message</label>
-        <textarea name="message" placeholder="Tell me about your project and goals..." required></textarea>
-    </div>
-
-    <!-- Hidden fields -->
-    <input type="hidden" name="_subject" value="Nova poraka od Fivel Lab websajt!">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-
-    <button type="submit" class="btn-submit">Send Message</button>
-</form>
-                    <div class="form-status" id="formStatus"></div>
-                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="9d849a30-cde5-45c6-b6cf-92a30d7c3688">
+                    
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Tell me about your project and goals..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+                <div class="form-status" id="formStatus"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer>
@@ -2085,18 +2094,16 @@ counters.forEach(counter => {
             <p>© 2025 Fivel Lab. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
+<script>
     // MOBILE MENU TOGGLE
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.getElementById('navLinks');
-
+    
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
         });
-
-        // Close menu when clicking on a link
+        
         const menuLinks = navLinks.querySelectorAll('a');
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -2104,7 +2111,7 @@ counters.forEach(counter => {
             });
         });
     }
-
+    
     // PROCESS ANIMATION
     const processSteps = document.querySelectorAll('.process-step');
     
@@ -2118,9 +2125,246 @@ counters.forEach(counter => {
             }
         });
     }, { threshold: 0.2 });
-
+    
     processSteps.forEach(step => processObserver.observe(step));
-
+    
+    // CONTACT FORM - WEB3FORMS AJAX
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    if (contactForm && formStatus) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                } else {
+                    formStatus.textContent = '✗ Something went wrong. Please try again.';
+                    formStatus.className = 'form-status error';
+                }
+            } catch (error) {
+                formStatus.textContent = '✗ Connection error. Please try again later.';
+                formStatus.className = 'form-status error';
+            }
+            
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+    }
 </script>
+
+<!-- AI CHATBOT -->
+<div id="aiChatbot" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+    <button id="chatToggle" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #49b8a5, #3a9c8a); border: none; cursor: pointer; box-shadow: 0 5px 20px rgba(73, 184, 165, 0.4); transition: transform 0.3s;">
+        <span style="font-size: 28px;">💬</span>
+    </button>
+    <div id="chatWindow" style="display: none; width: 350px; height: 500px; background: white; border-radius: 20px; box-shadow: 0 10px 50px rgba(0,0,0,0.3); position: absolute; bottom: 80px; right: 0; flex-direction: column;">
+        <div style="background: linear-gradient(135deg, #003d4a, #002a33); padding: 20px; border-radius: 20px 20px 0 0; color: white; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h4 style="margin: 0; font-family: 'Poppins', sans-serif;">Fivel Lab AI</h4>
+                <p style="margin: 5px 0 0; font-size: 12px; opacity: 0.8;">Powered by Claude</p>
+            </div>
+            <span style="font-size: 20px;">🧪</span>
+        </div>
+        <div id="chatMessages" style="flex: 1; padding: 20px; overflow-y: auto; max-height: 350px;"></div>
+        <div style="padding: 15px; border-top: 1px solid #eee;">
+            <input id="chatInput" type="text" placeholder="Ask me anything..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 25px; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+        </div>
+    </div>
+</div>
+
+<script>
+const chatToggle = document.getElementById('chatToggle');
+const chatWindow = document.getElementById('chatWindow');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+
+chatToggle.addEventListener('click', () => {
+    if (chatWindow.style.display === 'none' || !chatWindow.style.display) {
+        chatWindow.style.display = 'flex';
+        if (chatMessages.innerHTML === '') {
+            setTimeout(() => addBotMessage('Hi! 👋 How can I help you today? Ask me about our services, pricing, or proven results!'), 300);
+        }
+    } else {
+        chatWindow.style.display = 'none';
+    }
+});
+
+function addUserMessage(msg) {
+    chatMessages.innerHTML += `<div style="background: #f0f0f0; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; margin-left: auto; font-size: 14px; font-family: 'Montserrat', sans-serif;">${msg}</div>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function addBotMessage(msg) {
+    chatMessages.innerHTML += `<div style="background: linear-gradient(135deg, #49b8a5, #3a9c8a); color: white; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; font-size: 14px; font-family: 'Montserrat', sans-serif; line-height: 1.6;">${msg}</div>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function addTyping() {
+    chatMessages.innerHTML += `<div id="typing" style="background: #f0f0f0; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; font-size: 14px;"><span style="animation: blink 1.4s infinite;">●</span><span style="animation: blink 1.4s infinite 0.2s;">●</span><span style="animation: blink 1.4s infinite 0.4s;">●</span></div>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function getBotResponse(msg) {
+    const m = msg.toLowerCase();
+    
+    // Greetings
+    if (m.match(/^(hi|hello|hey|sup|yo|greetings)/)) {
+        return 'Hey there! 👋 I\'m here to help. You can ask me about our <strong>services</strong>, <strong>pricing plans</strong>, <strong>proven results</strong>, or how we work!';
+    }
+    
+    // Pricing - Basic
+    if (m.includes('basic') && (m.includes('price') || m.includes('cost') || m.includes('plan'))) {
+        return 'Our <strong>Basic Plan</strong> is <strong>$180/month</strong> and includes 2 Reels, 4 static posts, 6 stories, hashtag research, and monthly reporting. Perfect for businesses just starting with social media! <a href="Pricing.html" style="color: white; text-decoration: underline;">See full details</a>';
+    }
+    
+    // Pricing - Advanced
+    if (m.includes('advanced') && (m.includes('price') || m.includes('cost') || m.includes('plan'))) {
+        return 'The <strong>Advanced Plan</strong> is <strong>$260/month</strong> (our most popular!) and includes 5 Reels, 6 posts, 8 stories, plus scheduling, profile optimization, and competitor analysis. <a href="Pricing.html" style="color: white; text-decoration: underline;">View comparison</a>';
+    }
+    
+    // Pricing - Premium
+    if (m.includes('premium') && (m.includes('price') || m.includes('cost') || m.includes('plan'))) {
+        return 'Our <strong>Premium Plan</strong> is <strong>$390/month</strong> and includes everything plus TikTok content, comment/DM management, monthly consultations, and Instagram Highlights setup. The complete package! <a href="Pricing.html" style="color: white; text-decoration: underline;">Learn more</a>';
+    }
+    
+    // General pricing
+    if (m.includes('price') || m.includes('pricing') || m.includes('cost') || m.includes('expensive') || m.includes('cheap') || m.includes('how much')) {
+        return 'We have 3 social media plans: <strong>Basic $180/month</strong>, <strong>Advanced $260/month</strong> (best value!), and <strong>Premium $390/month</strong>. Meta Ads management is custom-priced based on your campaign needs. <a href="Pricing.html" style="color: white; text-decoration: underline;">See all pricing</a>';
+    }
+    
+    // Meta Ads pricing
+    if (m.includes('meta') && (m.includes('price') || m.includes('cost'))) {
+        return '<strong>Meta Ads pricing is customized</strong> based on your campaign scale, complexity, creative needs, and management level. Management fees are separate from your ad spend budget. Let\'s discuss your specific needs! <a href="#contact" style="color: white; text-decoration: underline;">Contact us</a>';
+    }
+    
+    // Services general
+    if (m.includes('service') || m.includes('what do you') || m.includes('what you do') || m.includes('offer')) {
+        return 'We offer 4 core services: <strong>Meta Ads Management</strong> (Facebook/Instagram), <strong>Premium Creative Design</strong> (Photoshop + CapCut), <strong>Psychology-Driven Copywriting</strong>, and <strong>Marketing Automation</strong> (Zapier + ManyChat). We\'ve managed $1M+ in ad spend! <a href="#services" style="color: white; text-decoration: underline;">Learn more</a>';
+    }
+    
+    // Meta Ads specific
+    if (m.includes('meta ad') || m.includes('facebook ad') || m.includes('instagram ad') || (m.includes('ad') && (m.includes('facebook') || m.includes('instagram')))) {
+        return 'I specialize in <strong>Meta Ads</strong> with 5+ years experience managing <strong>$1M+ in ad spend</strong>. Average <strong>5x ROAS</strong> across campaigns. I handle strategy, creative, targeting, and optimization - everything! <a href="#case-studies" style="color: white; text-decoration: underline;">See results</a>';
+    }
+    
+    // Results / Case Studies
+    if (m.includes('result') || m.includes('case stud') || m.includes('success') || m.includes('example') || m.includes('proof')) {
+        return 'Proven results: <strong>12.6x ROAS</strong> on Halloween campaign (263 leads at $2.07 each), <strong>4.85x ROAS</strong> on skincare launch (265 leads), and <strong>4.14% CTR</strong> on studio opening (fully booked in 20 days)! <a href="portfolio.html" style="color: white; text-decoration: underline;">View portfolio</a>';
+    }
+    
+    // Portfolio / Work
+    if (m.includes('portfolio') || m.includes('work') || m.includes('previous') || m.includes('past project')) {
+        return 'Check out our <strong>proven results</strong>: campaigns with 12.6x ROAS, 265+ qualified leads, and clients fully booked in under 3 weeks. We have case studies and creative work samples! <a href="portfolio.html" style="color: white; text-decoration: underline;">View full portfolio</a>';
+    }
+    
+    // ROAS
+    if (m.includes('roas') || m.includes('return on ad spend')) {
+        return 'Our average ROAS is <strong>5x across all campaigns</strong>, with top performers achieving <strong>12.6x ROAS</strong>! We focus on data-driven optimization and psychology-driven creative to maximize your returns. Want to see how we can help you?';
+    }
+    
+    // Process / How it works
+    if (m.includes('process') || m.includes('how') || m.includes('work with') || m.includes('workflow')) {
+        return 'Our 5-phase process: <strong>1) Discovery</strong> (understand your business), <strong>2) Strategy</strong> (data-driven planning), <strong>3) Creation</strong> (premium content), <strong>4) Launch</strong> (precise targeting), <strong>5) Optimize</strong> (continuous improvement). <a href="#process" style="color: white; text-decoration: underline;">Learn more</a>';
+    }
+    
+    // Why choose / Different
+    if (m.includes('why') || m.includes('different') || m.includes('choose') || m.includes('better') || m.includes('vs agency')) {
+        return 'Unlike agencies: I work <strong>directly with you</strong> (no middlemen), take only <strong>4 clients max</strong> (premium focus), and I\'m a <strong>Meta Ads specialist</strong> with $1M+ proven spend - not a generalist. You get my full expertise! <a href="#" style="color: white; text-decoration: underline;">See what makes us different</a>';
+    }
+    
+    // Contact
+    if (m.includes('contact') || m.includes('email') || m.includes('reach') || m.includes('talk') || m.includes('call')) {
+        return 'You can reach me at <strong>fivellab1@gmail.com</strong> or use our <a href="#contact" style="color: white; text-decoration: underline;">contact form</a>. I typically respond within 24 hours. Let\'s discuss how I can help grow your business!';
+    }
+    
+    // Social media management
+    if (m.includes('social media') || m.includes('instagram') || m.includes('facebook') || m.includes('tiktok') || m.includes('content')) {
+        return 'We offer <strong>Social Media Management</strong> with 3 tiers: Basic ($180), Advanced ($260), Premium ($390). Includes Reels, posts, stories, hashtag research, and more. Instagram & Facebook included, TikTok in Premium only. <a href="Pricing.html" style="color: white; text-decoration: underline;">Compare plans</a>';
+    }
+    
+    // Design / Creative
+    if (m.includes('design') || m.includes('creative') || m.includes('graphic') || m.includes('video')) {
+        return 'We create <strong>premium designs</strong> with Photoshop and <strong>engaging videos</strong> with CapCut. Every piece is custom-made and psychology-driven to stop the scroll and drive action. No generic templates!';
+    }
+    
+    // Experience / Years
+    if (m.includes('experience') || m.includes('year') || m.includes('long')) {
+        return 'I have <strong>5+ years</strong> of specialized Meta Ads experience, managing <strong>$1M+ in ad spend</strong> across <strong>50+ campaigns</strong> in multiple industries. Battle-tested expertise you can trust!';
+    }
+    
+    // Clients / How many
+    if (m.includes('how many client') || m.includes('client limit') || m.includes('availability')) {
+        return 'I work with a <strong>maximum of 4 clients at once</strong> to ensure premium focus, fast responses, and deep strategic thinking for each business. This exclusivity means you get my full attention!';
+    }
+    
+    // Location / Remote
+    if (m.includes('location') || m.includes('where') || m.includes('remote')) {
+        return 'I work <strong>100% remotely</strong> with clients worldwide! Location doesn\'t matter - we communicate via messages and video calls. I\'ve successfully managed campaigns for businesses across multiple countries.';
+    }
+    
+    // Payment / How to pay
+    if (m.includes('payment') || m.includes('pay') || m.includes('invoice')) {
+        return 'Payment is simple: <strong>50% upfront</strong> before work begins, and <strong>50% after completion</strong> when all content is delivered to your Drive folder. We accept standard payment methods.';
+    }
+    
+    // Difference between plans
+    if (m.includes('difference between') || m.includes('compare plan')) {
+        return 'Main differences: <strong>Basic</strong> (2 Reels, 4 posts, 6 stories), <strong>Advanced</strong> (5 Reels, 6 posts, 8 stories + scheduling & optimization), <strong>Premium</strong> (7 Reels, 8 posts, 12 stories + DM/comment management + TikTok). <a href="Pricing.html" style="color: white; text-decoration: underline;">Full comparison</a>';
+    }
+    
+    // Best plan / Recommendation
+    if (m.includes('best plan') || m.includes('recommend') || m.includes('which plan')) {
+        return 'Our <strong>Advanced Plan ($260/month)</strong> is most popular! It includes scheduling, profile optimization, competitor analysis, and audience insights - everything most businesses need. But I can help you choose based on your goals!';
+    }
+    
+    // Tools / Software
+    if (m.includes('tool') || m.includes('software') || m.includes('use')) {
+        return 'We use professional tools: <strong>Photoshop</strong> (design), <strong>CapCut</strong> (video editing), <strong>Meta Ads Manager</strong> (advertising), <strong>Zapier & ManyChat</strong> (automation), and <strong>Klaviyo</strong> (email marketing). Premium tools for premium results!';
+    }
+    
+    // Default response
+    return 'Great question! For detailed information, check out our <a href="#services" style="color: white; text-decoration: underline;">Services</a>, <a href="Pricing.html" style="color: white; text-decoration: underline;">Pricing</a>, or <a href="portfolio.html" style="color: white; text-decoration: underline;">Portfolio</a> pages. Or <a href="#contact" style="color: white; text-decoration: underline;">contact me directly</a> - I\'d love to discuss your specific needs!';
+}
+
+function sendMessage() {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+    
+    addUserMessage(msg);
+    chatInput.value = '';
+    addTyping();
+    
+    setTimeout(() => {
+        document.getElementById('typing')?.remove();
+        addBotMessage(getBotResponse(msg));
+    }, 800);
+}
+
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+
+const style = document.createElement('style');
+style.textContent = `@keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }`;
+document.head.appendChild(style);
+</script>
+
 </body>
 </html>
