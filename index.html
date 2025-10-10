@@ -574,35 +574,55 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* CLIENT LOGOS */
-        .client-logos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
-            align-items: center;
-        }
+ /* CLIENT LOGOS */
+.client-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
 
-        .client-logo {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-        }
+.client-logo {
+    height: 150px;            /* поголема рамка → логото ќе биде поголемо */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #003d4a;
+    border-radius: 10px;
+    padding: 0;               /* без padding */
+}
 
-        .client-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
+.client-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
 
-        .client-logo:hover img {
-            opacity: 1;
-        }
+.client-logo:hover img {
+    opacity: 1;
+}
+
+/* MEDIA QUERY за мобилен */
+@media (max-width: 768px) {
+    .client-logos {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+    }
+
+    .client-logo {
+        height: 120px;          /* помала рамка на мобилен */
+    }
+
+    .client-logo img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
 
         /* STATS */
         .stats-grid {
@@ -1565,7 +1585,7 @@
             </div>
             <div class="client-logos">
                 <div class="client-logo">
-                    <img src="images/clients/client-1.png" alt="Client 1">
+                    <img src="images/Clients/apt-lg.png" alt="Client 1">
                 </div>
                 <div class="client-logo">
                     <img src="images/clients/client-2.png" alt="Client 2">
