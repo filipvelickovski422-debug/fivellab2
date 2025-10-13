@@ -1055,7 +1055,8 @@
             
             <div class="selected-plan" id="selectedPlan"></div>
 
-            <form id="pricingForm">
+            <form id="pricingForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="9d849a30-cde5-45c6-b6cf-92a30d7c3688">
                 <input type="hidden" name="plan" id="planInput">
                 
                 <div class="form-group">
@@ -1149,36 +1150,48 @@
             }
         });
 
-        // FORM SUBMISSION
+        // FORM SUBMISSION - Web3Forms
         const pricingForm = document.getElementById('pricingForm');
         const modalFormStatus = document.getElementById('modalFormStatus');
 
-        pricingForm.addEventListener('submit', function(e) {
+        pricingForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const formData = new FormData(pricingForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            const plan = formData.get('plan');
+            const submitBtn = pricingForm.querySelector('.btn-submit');
             
-            // Mailto fallback
-            const subject = `Pricing Inquiry - ${plan} - ${name}`;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ASelected Plan: ${plan}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
             
-            // Open email client
-            window.location.href = `mailto:fivellab@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    modalFormStatus.textContent = '✓ Message sent successfully! I\'ll get back to you within 24 hours.';
+                    modalFormStatus.className = 'form-status success';
+                    pricingForm.reset();
+                    
+                    setTimeout(() => {
+                        closeModal();
+                        modalFormStatus.style.display = 'none';
+                    }, 3000);
+                } else {
+                    modalFormStatus.textContent = '✗ Something went wrong. Please try again.';
+                    modalFormStatus.className = 'form-status error';
+                }
+            } catch (error) {
+                modalFormStatus.textContent = '✗ Connection error. Please try again later.';
+                modalFormStatus.className = 'form-status error';
+            }
             
-            // Show success message
-            modalFormStatus.textContent = 'Opening your email client... If it doesn\'t open automatically, please email us directly at fivellab@gmail.com';
-            modalFormStatus.className = 'form-status success';
-            
-            // Reset form after 3 seconds
-            setTimeout(() => {
-                closeModal();
-            }, 3000);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Request';
         });
     </script>
 </body>
-
 </html>
