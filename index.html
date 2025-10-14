@@ -1563,8 +1563,22 @@
         grid-template-columns: 1fr;
         padding: 40px 30px;
     }
-
-     .portfolio-grid {
+    
+    .case-study-visual {
+        min-height: 0;
+        height: auto;
+        display: block;
+        background: transparent;
+    }
+    
+    .case-study-visual img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .portfolio-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -2693,5 +2707,6 @@ document.head.appendChild(style);
 
 </body>
 </html>
+
 
 
