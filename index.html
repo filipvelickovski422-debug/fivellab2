@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Fivel Lab | Your Social Media Lab for Engineered Results</title>
-
-<!-- Google Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SY8N6GC3CP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-SY8N6GC3CP');
-    </script>  
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -585,52 +574,64 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
- /* CLIENT LOGOS */
-.client-logos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 40px;
-    align-items: center;
-}
+ /* CLIENT LOGOS - MARQUEE */
+        .logo-marquee {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
 
-.client-logo {
-    height: 150px;            /* поголема рамка → логото ќе биде поголемо */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #003d4a;
-    border-radius: 10px;
-    padding: 0;               /* без padding */
-}
+        .logo-track {
+            display: flex;
+            gap: 60px;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
 
-.client-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
+        .client-logo-marquee {
+            height: 120px;
+            width: 180px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #003d4a;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
 
-.client-logo:hover img {
-    opacity: 1;
-}
+        .client-logo-marquee:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(73, 184, 165, 0.3);
+        }
 
-/* MEDIA QUERY за мобилен */
-@media (max-width: 768px) {
-    .client-logos {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
-    }
+        .client-logo-marquee img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
 
-    .client-logo {
-        height: 120px;          /* помала рамка на мобилен */
-    }
+        .client-logo-marquee:hover img {
+            opacity: 1;
+        }
 
-    .client-logo img {
-        width: 100%;
-        height: 100%;
-    }
-}
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Pause on hover */
+        .logo-marquee:hover .logo-track {
+            animation-play-state: paused;
+        }
 
 
 
@@ -1333,15 +1334,158 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
         }
+/* PERFORMANCE CALCULATOR */
+        .calculator-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .calculator-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(73, 184, 165, 0.3);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .calc-input-group label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .calc-input-group input,
+        .calc-input-group select {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .calc-input-group input:focus,
+        .calc-input-group select:focus {
+            outline: none;
+            border-color: #49b8a5;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .calc-input-group select {
+            cursor: pointer;
+        }
+
+        .calc-input-group select option {
+            background: #003d4a;
+            color: white;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        .calc-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #e9a631, #d89520);
+            color: #003d4a;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calc-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 166, 49, 0.5);
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 2px solid #49b8a5;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            border-color: #e9a631;
+            box-shadow: 0 10px 30px rgba(73, 184, 165, 0.3);
+        }
+
+        .result-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .result-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #49b8a5;
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .calculator-cta {
+            text-align: center;
+            padding: 40px 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
 
         /* MOBILE RESPONSIVE */
 @media (max-width: 968px) {
     nav {
         padding: 15px 20px;
     }
+
     .mobile-menu-toggle {
         display: flex;
     }
+
     .nav-links {
         position: fixed;
         top: 80px;
@@ -1356,117 +1500,165 @@
         box-shadow: 0 5px 20px rgba(0, 61, 74, 0.1);
         z-index: 999;
     }
+
     .nav-links.active {
         left: 0;
     }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 40px;
         padding-top: 20px;
     }
+
     .hero-text h1 {
         font-size: 36px;
     }
+
     .hero-subtitle {
         font-size: 16px;
     }
+
     .hero-visual {
         height: 450px;
         width: 100%;
     }
+
     .flasks-container {
         gap: 25px;
         transform: scale(0.85);
     }
+
     .flask:nth-child(1) .test-tube { height: 280px; }
     .flask:nth-child(2) .test-tube { height: 320px; }
     .flask:nth-child(3) .test-tube { height: 260px; }
+
     .lab-label {
         font-size: 10px;
         padding: 8px 14px;
     }
+
     .lab-label:nth-child(2) {
         transform: translateX(-50%) translateY(0);
     }
+
     .section {
         padding: 60px 20px;
     }
+
     .section-title {
         font-size: 32px;
     }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+
     .services-grid {
         grid-template-columns: 1fr;
     }
+
     .case-study {
         grid-template-columns: 1fr;
         padding: 40px 30px;
     }
-    
-    .case-study-visual {
-        min-height: auto;
-        height: auto;
-    }
-    
-    .case-study-visual img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-    
-    .portfolio-grid {
+
+     .portfolio-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         gap: 20px !important;
     }
+
     .portfolio-item {
         width: 85vw !important;
         max-width: 380px !important;
         height: auto !important;
         flex-shrink: 0 !important;
     }
+
     .portfolio-item:nth-child(1),
     .portfolio-item:nth-child(3) {
         aspect-ratio: 4/5 !important;
     }
+
     .portfolio-item:nth-child(2),
     .portfolio-item:nth-child(4) {
         aspect-ratio: 1/1 !important;
     }
+
     .portfolio-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
+
     .contact-content, .about-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
     .hero-buttons {
         flex-direction: column;
     }
+
     .case-study-metrics {
         grid-template-columns: 1fr;
     }
+
     .difference-grid {
         grid-template-columns: 1fr;
     }
+
     .process-grid {
         grid-template-columns: 1fr;
     }
-}
-
+  /* Calculator mobile */
+    .calculator-card {
+        padding: 20px 15px;
+    }
+    .calculator-inputs {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .calculator-results {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    .result-card {
+        padding: 20px 15px;
+    }
+    .result-icon {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .result-value {
+        font-size: 24px;
+        word-break: break-word;
+    }
+    .result-label {
+        font-size: 13px;
+    }
+    .calc-input-group input,
+    .calc-input-group select {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+    .calc-button {
+        font-size: 16px;
+        padding: 15px;
+    }
     </style>
 </head>
 <body>
@@ -1571,25 +1763,58 @@
         </div>
     </section>
 
-    <!-- TRUSTED BY -->
+    <!-- TRUSTED BY - SCROLLING MARQUEE -->
     <section class="section section-light">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Trusted By</div>
                 <h2 class="section-title">Leading Brands</h2>
             </div>
-            <div class="client-logos">
-                <div class="client-logo">
-                    <img src="Images/Clients/apt-lg.png" alt="Client 1">
-                </div>
-                <div class="client-logo">
-                    <img src="Images/Clients/rb-lg.png" alt="Client 2">
-                </div>
-                <div class="client-logo">
-                    <img src="Images/Clients/bs-lg.png" alt="Client 3">
-                </div>
-                <div class="client-logo">
-                    <img src="Images/Clients/std-lg.png" alt="Client 4">
+            <div class="logo-marquee">
+                <div class="logo-track">
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/apt-lg.png" alt="Client 1">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/rb-lg.png" alt="Client 2">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/bs-lg.png" alt="Client 3">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/std-lg.png" alt="Client 4">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/apt-lg.png" alt="Client 5">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/rb-lg.png" alt="Client 6">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/bs-lg.png" alt="Client 7">
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/apt-lg.png" alt="Client 1">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/rb-lg.png" alt="Client 2">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/bs-lg.png" alt="Client 3">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/std-lg.png" alt="Client 4">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/apt-lg.png" alt="Client 5">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/rb-lg.png" alt="Client 6">
+                    </div>
+                    <div class="client-logo-marquee">
+                        <img src="Images/Clients/bs-lg.png" alt="Client 7">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1725,7 +1950,7 @@ counters.forEach(counter => {
                     <a href="portfolio.html#meta-ads" class="btn-secondary-case">View Full Case Study</a>
                 </div>
                 <div class="case-study-visual">
-                    <img src="Images/aptha-e1.png" alt="Halloween Campaign Results">
+                    <img src="images/case-studies/meta-halloween.jpg" alt="Halloween Campaign Results">
                 </div>
             </div>
 
@@ -1989,7 +2214,7 @@ counters.forEach(counter => {
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="Images/filip-profile.png" alt="Your Photo">
+                    <img src="images/about-photo.jpg" alt="Your Photo">
                 </div>
                 <div class="about-text">
                     <h3>Hi, I'm Your Digital Marketing Partner</h3>
@@ -2005,6 +2230,66 @@ counters.forEach(counter => {
                         <span class="skill-tag">Copywriting</span>
                         <span class="skill-tag">Marketing Automation</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- PERFORMANCE CALCULATOR -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Interactive Tool</div>
+                <h2 class="section-title">Calculate Your Potential ROAS</h2>
+                <p class="section-subtitle">See how much revenue you could generate with our proven 5x average ROAS</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <div class="calculator-inputs">
+                        <div class="calc-input-group">
+                            <label>Monthly Ad Budget ($)</label>
+                            <input type="number" id="adBudget" value="2000" min="100" step="100">
+                        </div>
+                        <div class="calc-input-group">
+                            <label>Average Order Value ($)</label>
+                            <input type="number" id="avgOrderValue" value="50" min="1" step="5">
+                        </div>
+                        <div class="calc-input-group">
+                            <label>Expected ROAS</label>
+                            <select id="roasMultiplier">
+                                <option value="3">3x (Conservative)</option>
+                                <option value="5" selected>5x (Our Average)</option>
+                                <option value="7">7x (High Performer)</option>
+                                <option value="12">12x (Best Case)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="calc-button" onclick="calculateROAS()">Calculate Results</button>
+                </div>
+                <div class="calculator-results" id="calculatorResults" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-icon">💰</div>
+                        <div class="result-value" id="projectedRevenue">$0</div>
+                        <div class="result-label">Projected Revenue</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">🛒</div>
+                        <div class="result-value" id="totalOrders">0</div>
+                        <div class="result-label">Estimated Orders</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">📊</div>
+                        <div class="result-value" id="netProfit">$0</div>
+                        <div class="result-label">Net Profit</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">🎯</div>
+                        <div class="result-value" id="costPerOrder">$0</div>
+                        <div class="result-label">Cost Per Order</div>
+                    </div>
+                </div>
+                <div class="calculator-cta">
+                    <p style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 20px;">Ready to achieve these results? Let's make it happen.</p>
+                    <a href="#contact" class="btn-primary">Get Started Now</a>
                 </div>
             </div>
         </div>
@@ -2025,7 +2310,7 @@ counters.forEach(counter => {
                 <div class="contact-methods">
                     <div class="contact-method">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        <span>info@fivellab.com</span>
+                        <span>fivellab1@gmail.com</span>
                     </div>
                     <div class="contact-method">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -2065,13 +2350,13 @@ counters.forEach(counter => {
                 <div class="footer-brand">FIVEL LAB</div>
                 <p class="footer-text">Your Social Media Lab for Engineered Results. Specialized Meta Ads expert with $1M+ in proven ad spend.</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/fivellab/?hl=en" target="_blank" class="social-link">
+                    <a href="https://instagram.com/your_profile" target="_blank" class="social-link">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     </a>
-                    <a href="https://www.instagram.com/fivellab/?hl=en" target="_blank" class="social-link">
+                    <a href="https://facebook.com/your_profile" target="_blank" class="social-link">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <a href="https://www.instagram.com/fivellab/?hl=en" target="_blank" class="social-link">
+                    <a href="https://tiktok.com/@your_profile" target="_blank" class="social-link">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
                     </a>
                 </div>
@@ -2142,6 +2427,31 @@ counters.forEach(counter => {
     }, { threshold: 0.2 });
     
     processSteps.forEach(step => processObserver.observe(step));
+
+  // PERFORMANCE CALCULATOR
+    function calculateROAS() {
+        const budget = parseFloat(document.getElementById('adBudget').value);
+        const avgOrderValue = parseFloat(document.getElementById('avgOrderValue').value);
+        const roasMultiplier = parseFloat(document.getElementById('roasMultiplier').value);
+        
+        if (!budget || !avgOrderValue) {
+            alert('Please enter valid numbers!');
+            return;
+        }
+        
+        const projectedRevenue = budget * roasMultiplier;
+        const totalOrders = Math.floor(projectedRevenue / avgOrderValue);
+        const actualRevenue = totalOrders * avgOrderValue;  // ← Реална revenue!
+        const netProfit = actualRevenue - budget;           // ← Користи actualRevenue
+        const costPerOrder = budget / totalOrders;
+        
+        document.getElementById('projectedRevenue').textContent = '$' + actualRevenue.toLocaleString();  // ← Покажи actualRevenue
+        document.getElementById('totalOrders').textContent = totalOrders.toLocaleString();
+        document.getElementById('netProfit').textContent = '$' + netProfit.toLocaleString();
+        document.getElementById('costPerOrder').textContent = '$' + costPerOrder.toFixed(2);
+        
+        document.getElementById('calculatorResults').style.display = 'grid';
+    }
     
     // CONTACT FORM - WEB3FORMS AJAX
     const contactForm = document.getElementById('contactForm');
@@ -2306,7 +2616,7 @@ function getBotResponse(msg) {
     
     // Contact
     if (m.includes('contact') || m.includes('email') || m.includes('reach') || m.includes('talk') || m.includes('call')) {
-        return 'You can reach me at <strong>info@fivellab.com</strong> or use our <a href="#contact" style="color: white; text-decoration: underline;">contact form</a>. I typically respond within 24 hours. Let\'s discuss how I can help grow your business!';
+        return 'You can reach me at <strong>fivellab1@gmail.com</strong> or use our <a href="#contact" style="color: white; text-decoration: underline;">contact form</a>. I typically respond within 24 hours. Let\'s discuss how I can help grow your business!';
     }
     
     // Social media management
@@ -2383,16 +2693,3 @@ document.head.appendChild(style);
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
